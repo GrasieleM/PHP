@@ -1,0 +1,73 @@
+//(https://s3.amazonaws.com/kandipatternspatterns/characters/2625-Yoshi_Perler_Bead.png)
+//TEKSTINIS(.txt) FAILAS :
+0000000000000110110000000
+0000000000001651651000000
+0000000000017644444100000
+0000000011117441414100000
+0000000122214441414100000
+0000000132114444444111000
+0000000111541444141555100
+0000001216555111515544510
+0000013216554445655515151
+0000013317644446655555551
+0000001117644441665555551
+0000000117784481766655561
+0000000121778811776666661
+0000000011177881777766610
+0000000012176984177771100
+0000011111766991111110000
+0000122111764441110000000
+0011221155554441451000000
+1116116655144441145100000
+1561155551444441115100000
+1471555445144441155100000
+1441655441144411555100000
+0141765555144411666100000
+0144176661448111111000000
+0011111118888100000000000
+0013222199111000000000000
+0013222111211100000000000
+0133324213222410000000000
+0133222213322210000000000
+0111111111111110000000000
+
+//KODAS
+<?php
+
+$width = 25;
+$height = 30;
+$scale = 10;
+$img = imagecreatetruecolor($width,$height);
+
+$black = imagecolorallocate($img,255,255,255);
+
+$log = file_get_contents('swim.txt');
+$rows = explode("\n",$log);
+foreach($rows as $y => $row){
+    $columns = str_split($row);
+    foreach($columns as $x => $column){
+        switch($column){
+        case '0':$color =  imagecolorallocate($img,198,189,189);break;
+        case '1':$color =  imagecolorallocate($img,114,109,109);break;
+        case '2':$color =  imagecolorallocate($img,255,18,50);break;
+        case '3':$color =  imagecolorallocate($img,148,9,28);break;
+        case '4':$color =  imagecolorallocate($img,255,255,255);break;
+        case '5':$color =  imagecolorallocate($img,153,255,51);break;
+        case '6':$color =  imagecolorallocate($img,102,204,0);break; 
+        case '7':$color =  imagecolorallocate($img,51,102,0);break;
+        case '8':$color =  imagecolorallocate($img,204,0,102);break;
+        case '9':$color =  imagecolorallocate($img,255,102,178);break;
+        default:$color = $black;
+        }
+        imagesetpixel($img,$x,$y,$color);
+    }
+}
+
+$new_img = imagecreate($scale * $width,$scale * $height);
+imagecopyresized($new_img,$img,0,0,0,0,$scale * $width,$scale * $height,$width,$height);
+
+header('Content-Type: image/png');
+imagepng($new_img);
+imagedestroy($new_img);
+imagedestroy($img);
+?>
