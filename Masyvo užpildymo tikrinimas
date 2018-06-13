@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$duom =array('vardas' => 'Jonas', 'pavarde' => 'Jonaitis', 'amzius' => 15);
+if (array_key_exists("vardas",$duom) && array_key_exists("pavarde",$duom) && array_key_exists("amzius",$duom))
+  {
+  echo "Studentui"." " .$duom["vardas"]." ".$duom["pavarde"]." "."sukako"." ".$duom["amzius"]." "."metu";
+  }
+else
+  {
+  echo "Truksta duomenu";
+  }
+?>
+</body>
+</html>
