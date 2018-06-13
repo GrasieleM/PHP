@@ -1,0 +1,10 @@
+<?php
+$txt="laBAs ryTAs";
+$txtt=strtolower($txt);
+echo ucwords($txtt);
+?>
+2. Parašykite funkciją, kuri priimtų sakinį (string’ą) ir atspausdintų skaičių, kiek sakinyje yra žodžių.
+<?php
+$text="As myliu gyvenima";
+echo str_word_count($text);
+?>
