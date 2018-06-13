@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+<?php
+$zmones = [
+['vardas' => 'Petras', 'pavarde' => 'Vilkas', 'amzius' => 15],
+['vardas' => 'Stasys', 'pavarde' => 'Gremlinas', 'amzius' => 25],
+['vardas' => 'Antanas', 'pavarde' => 'Gaidelis', 'amzius' => 18],
+];
+
+function invenDescSort($item1,$item2)
+{
+    if ($item1['amzius'] == $item2['amzius']) return 0;
+    return ($item1['amzius'] > $item2['amzius']) ? 1 : -1;
+}
+usort($zmones,'invenDescSort');
+print_r($zmones);
+?>
+</body>
+</html>
+?>
