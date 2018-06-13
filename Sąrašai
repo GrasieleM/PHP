@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+
+for($x=1; $x<=5; $x++)
+{
+echo "<ul> <li> $x <ul>";
+for($y=1; $y<=5; $y++)
+{
+echo " <li>$y</li>";
+
+}
+echo "</ul></li></ul> ";
+}
+
+?>
+</body>
+</html>
